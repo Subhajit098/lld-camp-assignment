@@ -53,7 +53,7 @@ class CameraStreamPlayer implements Player {
     public boolean isLive() { return liveStarted; }
 }
 
-public class MediaLSPIsp {
+public class MediaLSTIsp {
     public static void main(String[] args) {
         AudioPlayer ap = new AudioPlayer();
         ap.play("song.mp3");
