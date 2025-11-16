@@ -1,0 +1,16 @@
+What is Liskov Substitution Principle (LSP)?
+
+Definition (in plain English):
+
+If class B is a subclass (derived) of class A, then objects of A should be replaceable with objects of B without breaking the correctness of the program.
+
+Or simply:
+
+A subclass should behave like its parent class — not change or break expectations.
+
+🧠 Intuition
+
+Think of inheritance like a “is-a” relationship.
+If B is a type of A, then wherever A is expected, we should be able to use B without problems.
+
+If replacing the base class object with a derived class object causes weird or wrong behavior, LSP is violated.

@@ -1,0 +1,12 @@
+summary : 
+
+With the SOLID principles applied, our design is significantly improved:
+SRP: Each class has a single responsibility.
+
+OCP: The system can be extended with new notifiers without modifying existing code.
+
+LSP: Subclasses (notifiers) can substitute for the base (INotifier) reliably.
+
+ISP: Interfaces are small and focused (just one method here).
+
+DIP: High-level logic depends on an abstraction (INotifier), not concrete classes.

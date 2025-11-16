@@ -1,0 +1,10 @@
+Isn’t it just better !!
+
+Now each class has a clear responsibility. EmailSender handles only emails, and SMSSender handles only SMS. The NotificationService is simpler – it just decides which sender to use and delegates the call.
+
+After applying SRP, the notification system is split into specialized classes. The NotificationService uses EmailSender and SMSSender to handle the details of each channel. Each class has a single responsibility (one job), which makes the code easier to maintain and extend.
+
+        NotificationService
+              /      \
+           uses      uses
+        EmailSender  SMSSender

@@ -1,0 +1,27 @@
+How to remove the if else SYSTEM 
+
+"OPEN CLOSED Principle"
+
+📖 Open-Closed Principle (OCP)
+The Open-Closed Principle says that classes and other entities should be open for extension, but closed for modification.
+
+In practice, this means we should design our classes so that we can add new functionality (extend them) without changing the existing code.
+
+We often achieve this by using abstraction and polymorphism .
+
+
+
+Looking at our NotificationService
+adding a new notification type currently requires changing its code (not closed for modification). We can apply OCP by introducing an abstraction for "notification sending".
+
+
+Plan: Applying OCP
+Define an abstract base class or interface (in C++ terms, an abstract class with a pure virtual function) for senders, say INotifier, with a method like send(const User&, const std::string&).
+
+Have EmailSender and SMSSender (and any future senders) inherit from INotifier and implement the send method.
+
+Change NotificationService to use INotifier references or pointers instead of concrete EmailSender/SMSSender. For example, NotificationService might have a method to accept any INotifier and invoke its send method, or maintain a list of INotifier objects to send through all available channels.
+
+This plan outlines how to use the INotifier abstraction to make the NotificationService open for extension (new senders) but closed for modification (no change to NotificationService needed).
+
+

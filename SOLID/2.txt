@@ -1,0 +1,16 @@
+1) Violation of Single Responsibility: The NotificationService class is doing multiple jobs – deciding the notification type and executing the sending logic for each type. Any change to email or SMS sending would require modifying this class, as would adding a new channel, meaning it has more than one reason to change (violating SRP, defined below).
+
+
+2) Tight Coupling and Rigidity: The logic for email and SMS is hard-coded in one place. If we want to add a PushNotification, we'd have to modify the existing sendNotification method, adding another else if. The class is closed to extension because it must be altered for new behavior, which goes against the Open-Closed Principle. The code is rigid – a change in one part (say how SMS is sent) might force recompiling and retesting the entire NotificationService.
+
+3) Scalability Issues (Class Explosion): As we support more notification types, NotificationService might grow huge with many if/else branches, or we might start adding more and more classes without clear structure, leading to a complex tangle of classes (class explosion) that are hard to manage.
+
+
+4) Difficulty in Testing and Maintenance: Because NotificationService directly writes to std::cout (simulating sending), testing its logic in isolation is hard – there’s no easy way to intercept or change how it sends messages (like redirect output or use a mock sender). The code depends on concrete implementations (like the console output) instead of abstractions, making it less flexible.
+
+5)"the initial design works, but it's fragile and not future-proof. We need to refactor the code to follow better design practices. A set of guidelines known as the SOLID principles can help us address these issues. SOLID stands for:
+
+S – Single-Responsibility Principle O – Open-Closed Principle L – Liskov Substitution Principle I – Interface Segregation Principle D – Dependency Inversion Principle"
+
+
+6) 

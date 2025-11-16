@@ -1,0 +1,22 @@
+// SRP review 
+
+// What is SRP ??
+
+// The Single-Responsibility Principle states that a class should have one and only one reason to change. In other words a class should only do one job. If a class is handling multiple tasks those tasks should be split into separate classes each with a clear focus.
+
+// Our code ??
+
+// it contained logic for sending emails and sending SMS. This means changes in either email or SMS functionality would require changes to NotificationService.
+
+
+// Single-Responsibility Principle (SRP):
+
+// Let's refactor our design according to SRP:
+
+// EmailSender – a class that knows how to send an email to a user.
+
+// SMSSender – a class that knows how to send an SMS to a user.
+
+// NotificationService – now this class will delegate the work to the appropriate sender. It will decide which sender to use (email or SMS) but will not handle the low-level sending details itself.
+
+// This separation means EmailSender and SMSSender can evolve independently. For example, if tomorrow we change the way emails are sent (say, use a different SMTP library), we only modify EmailSender.

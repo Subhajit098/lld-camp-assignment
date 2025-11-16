@@ -1,0 +1,9 @@
+Interface Segregation Principle (ISP)
+The Interface Segregation Principle advises that “no client should be forced to depend on methods it does not use”.
+
+Put differently, it's better to have many small, specific interfaces than a few monolithic ones that try to do everything.
+
+For us,
+In our notification system, INotifier has just one method send(...). This interface is already as segregated as it can get – each notifier class implements exactly what it needs. We don't have a case where, say, EmailSender is forced to implement an unrelated method. So our design for notifiers already follows ISP.
+
+ISP is like SRP but for interfaces

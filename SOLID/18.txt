@@ -1,0 +1,13 @@
+Step 1: What is DIP (in simple words)?
+
+DIP stands for: Dependency Inversion Principle — the ‘D’ in SOLID principles.
+
+Here’s the plain English version:
+
+High-level modules should not depend on low-level modules.
+Both should depend on abstractions (like interfaces).
+
+And also:
+
+Abstractions should not depend on details.
+Details should depend on abstractions.

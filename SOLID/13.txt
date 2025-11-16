@@ -1,0 +1,11 @@
+Ok... simple right ??
+For now, we'll assume our notifiers follow LSP. Each notifier can be used wherever an INotifier is needed, and the NotificationService will successfully send notifications through it. The next principle, Interface Segregation, will further help ensure our interfaces remain easy to implement correctly.
+
+To ensure LSP in practice:
+Keep interfaces focused and minimal (which ties into the next principle, ISP) so that implementing classes can fulfill them easily.
+
+Document any expectations. For example, if INotifier::send expects that the User has certain contact info available (email for EmailSender, phone for SMSSender), those expectations should be clear. In our design, we assume User.email is valid when using EmailSender, etc., which is reasonable.
+
+Write unit tests using the base class interface and run them against all subclasses to ensure none of the subclasses violate the expected behavior.
+
+The text provides practical tips for adhering to the Liskov Substitution Principle (LSP) and introduces the Interface Segregation Principle (ISP).

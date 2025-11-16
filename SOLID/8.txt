@@ -1,0 +1,14 @@
+Now thats some real progress !!
+In a real application, you might choose the notifier based on configuration or user preference, but the key is that NotificationService doesn't need to change when a new notifier is introduced.
+
+We can also imagine an enhanced NotificationService that holds a list of INotifier* and sends a message through all of them (broadcasting to multiple channels), but whether it sends through one or many channels, it treats them uniformly via the interface.
+
+How to add new ...
+At this point, our design leverages two fundamental OOP concepts: inheritance and polymorphism.
+
+adding a Push Notification sender would involve creating a PushSender class implementing INotifier::send. No changes to NotificationService are required;
+
+We already did something that helps in future...
+It's worth noting that we also started to implement the Dependency Inversion Principle here (even if we haven't discussed it yet): NotificationService is now depending on an abstraction (INotifier) rather than concrete classes.
+
+We will formally discuss DIP soon, but first, let's ensure our design honors the next principle, Liskov Substitution, which is about making sure our inheritance actually makes sense.
